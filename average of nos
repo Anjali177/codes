@@ -1,0 +1,128 @@
+import java.util.*;
+class Node
+{
+  private int info;
+  private Node next;
+  
+  
+public Node()
+  {
+    info=0;
+   next=null;
+  }
+public Node(int x)
+  {
+    info=x;
+    next=null;
+  }
+public void setnext(Node y)
+   {
+     next=y;
+   }
+public void setinfo(int p)
+   {
+    info=p;
+   }
+public int getinfo()
+   {
+    return(info);
+   }
+public Node getnext()
+  {
+   return(next);
+  }
+public void display()
+  {
+  System.out.println("info is"+info);
+  }
+}
+
+
+
+class Linked
+ {
+  Node start,last;
+   public Linked()
+     {
+       start=null;
+       last=null;
+     }
+void insertlast(int x)
+   {
+    Node newnode=new Node(x);
+    if(start==null)
+     {
+      start=newnode;
+      last=newnode;
+     }
+   else
+   {
+    last.setnext(newnode);
+      last=newnode;
+   }
+  }
+  
+void display()
+ {
+ Node temp=start;
+  while(temp!=null)
+    {
+     System.out.println(temp.getinfo());
+     temp=temp.getnext();
+    }
+ }
+  
+float average()
+  {
+    Node temp=start;
+   int s=0,count=0;
+   float avg=0;
+  while(temp!=null)
+   {
+    s+=temp.getinfo();
+    count=count+1;
+   temp=temp.getnext();
+   }
+ avg=s/count;
+  return(avg);
+  }
+
+}
+
+
+class Implement
+  {
+   public static void main(String args[])
+     {
+     Linked l=new Linked();
+     Scanner myobj=new Scanner(System.in);
+    int choice,x;
+    float p;
+   do
+     {
+      System.out.println("press 1 for insert");
+      System.out.println(" 2 for display");
+      System.out.println("press 3 for average");
+      System.out.println("press 4 for exit");
+      System.out.println("enter the choice");
+      choice=myobj.nextInt();
+      switch(choice)
+        {
+          case 1: System.out.println("enter the element");
+                  x=myobj.nextInt();
+                  l.insertlast(x);
+                  break;
+         case 2: System.out.println("display the elements");
+                 l.display();
+                 break;
+         case 3: System.out.println("average of elements ");
+                 p=l.average();
+                 System.out.println(p);
+                 break;
+         case 4: System.out.println("exit ");
+                 break;
+         }
+     }while(choice!=4);
+     
+  }
+ }
