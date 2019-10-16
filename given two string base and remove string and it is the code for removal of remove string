@@ -1,0 +1,56 @@
+import java.util.*;
+class Check
+ {
+     public String withoutstring(String base,String remove)
+           {
+               String result="";
+              for (int i=0;i<base.length();i++)
+                  {
+                       if (i>base.length()-remove.length())
+                            {
+                                result+=base.substring(i,base.length());
+                             break;
+                             }
+                    else
+            {   String substring=base.substring(i,i+remove.length());
+                     if(!(substring.equalsIgnoreCase(remove)))
+                         {
+                             result+=base.charAt(i);
+                            }
+                     else
+                       {
+                                i=i+remove.length()-1;
+                         }
+              }
+      }
+return(result);
+}
+}
+
+class Anjali
+ {
+         public static void main(String args[ ])
+            {  
+              String s=new String();
+              String p=new String();
+               String res;
+              Scanner myobj= new Scanner(System.in);
+              System.out.println("enter the base String");
+              s=myobj.nextLine();
+               System.out.println("enter the remove string");
+               p=myobj.nextLine();
+              Check c=new Check();
+               res=c.withoutstring(s,p);
+             System.out.println("the final string"  +res);
+               }
+ }
+               
+                
+            
+
+
+
+                      
+
+                       
+ 
