@@ -1,0 +1,244 @@
+import java.util.*;
+class Node
+ {
+   private int info;
+  private Node next;
+  private  Node prev;
+   public Node()
+    {
+      info=0;
+      next=null;
+      prev=null;
+    }
+public Node( int x)
+   {
+     info=x;
+     prev=null;
+     next=null;
+   }
+public void setinfo( int x)
+  {
+    info=x;
+   }
+public void setnext( Node m)
+ {  
+   next=m;
+  }
+public void setprev(Node p)
+  {
+   prev=p;
+   }
+public int getinfo( )
+   {
+    return(info);
+    }
+public Node getnext( )
+  {
+    return(next);
+  }
+ public Node getprev( )
+  {
+   return(prev);
+   }
+public void getdisplay()
+  {
+   System.out.println(info);
+   }
+}
+ 
+
+class Linked
+ {
+   Node start,last;
+   public Linked( )
+    {
+       start=null;
+       last=null;
+    }
+ public void insert( int x)
+  {
+    Node newnode=new Node(x);
+    if(start==null)
+    {
+      start=newnode;
+      last=newnode;
+    }
+ else
+  {
+    last.setnext(newnode);
+    newnode.setprev(last);
+    last=newnode;
+  }
+}
+
+public void display( )
+ {
+   if(start==null)
+   {
+    System.out.println("underflow");
+    }
+ else
+  {
+    Node temp=start;
+    while(temp!=null)
+    {
+       System.out.println(temp.getinfo());
+        temp=temp.getnext();
+    }
+  }
+}
+
+public Linked mergea(Linked l)
+  {
+    int a,b,max;
+     Linked m=new Linked();
+    if(start==null)
+    {
+     m.start=l.start;
+     m.last=l.last;
+    }
+  else if(l.start==null)
+     {
+       m.start=start;
+       m.last=last;
+      }
+else
+  {
+    Node temp1=start;
+    Node temp2=l.start;
+   while(temp1!=null && temp2!=null)
+      {
+         a=temp1.getinfo();
+        b=temp2.getinfo();
+       max=a<b?a:b;
+   if(max==a)
+     {
+       m.insert(max);
+       temp1=temp1.getnext();
+     }
+  else
+   {
+    m.insert(max);
+    temp2=temp2.getnext();
+   }
+}
+
+while(temp1!=null)
+  {
+    a=temp1.getinfo();
+   m.insert(a);
+   temp1=temp1.getnext();
+   }
+while(temp2!=null)
+   {
+    a=temp2.getinfo();
+     m.insert(a);
+     temp2=temp2.getnext();
+   }
+}
+return(m);
+}
+
+
+    
+
+public Linked merged(Linked l)
+  {
+    int a,b,max;
+     Linked m=new Linked();
+    if(start==null)
+    {
+     m.start=l.start;
+     m.last=l.last;
+    }
+  else if(l.start==null)
+     {
+       m.start=start;
+      m.last=last;
+       
+      }
+else
+  {
+    Node temp1=start;
+    Node temp2=l.start;
+   while(temp1!=null && temp2!=null)
+      {
+         a=temp1.getinfo();
+        b=temp2.getinfo();
+       max=a>b?a:b;
+   if(max==a)
+     {
+       m.insert(max);
+       temp1=temp1.getnext();
+     }
+  else
+   {
+    m.insert(max);
+    temp2=temp2.getnext();
+   }
+}
+
+while(temp1!=null)
+  {
+    a=temp1.getinfo();
+   m.insert(a);
+   temp1=temp1.getnext();
+   }
+while(temp2!=null)
+   {
+    a=temp2.getinfo();
+    m.insert(a);
+     temp2=temp2.getnext();
+   }
+}
+ return(m); 
+}        
+      
+}
+
+class Implement
+  {
+    public static void main(String args[])
+     {
+       int x,choice;
+       Scanner myobj=new Scanner(System.in);
+       Linked l1=new Linked();
+        Linked l2=new Linked();
+        Linked l3=new Linked();
+     do
+  {
+    System.out.println("press 1 for insert elemnt in li");
+    System.out.println("press 2 for insert in 2 linked list");
+     System.out.println("press 3 if list is given is in sorted order in ascending order");
+      System.out.println("press 4 if list is given in descending oder");
+      System.out.println("press 5 for exit");
+    System.out.println("enter the choice");
+     choice=myobj.nextInt();
+    switch(choice)
+     {
+       case 1: System.out.println("enter the elemnts");
+                x=myobj.nextInt();
+                l1.insert(x);
+                break;
+       case 2: System.out.println("enter the elemnet to be insert");
+               x=myobj.nextInt();
+               l2.insert(x);
+               break;
+      case 3: l3=l1.mergea(l2);
+              l3.display();
+              break;
+       case 4 : l3=l1.merged(l2);
+                System.out.println("final linked list");
+                l3.display();
+                 break;
+       case 5: System.out.println("exit");
+                break;
+      }
+  }while(choice!=5);
+ }
+}
+
+            
+      
+     
+      
