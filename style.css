@@ -1,0 +1,44 @@
+body
+{   
+    
+background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+
+.form-control
+{   background-color: black !important;
+}
+
+.col-md-6
+{   width: 50%;
+    float: none;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.5);
+    padding: 10 px;
+}
+
+.form-group
+{   width: 50%; 
+    margin: 50px auto;
+    display: block;
+}
+
+h2
+{  width: 50%; 
+    margin: 150px auto;
+    display: block;
+}
+
+.kk
+{    width: 50%;
+    margin-left: auto;
+	margin-right: auto;
+    display: block;
+}
